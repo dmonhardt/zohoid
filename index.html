@@ -12,16 +12,20 @@
                 return match && match[1] ? match[1] : 'Unavailable';
             }
 
-            // Extract ID from referrer
+            // Get the referrer URL
             const referrer = document.referrer;
-            const orgID = extractID(referrer);
 
-            // Display the ID
+            // Display the full referrer URL
+            document.getElementById('fullReferrer').textContent = referrer;
+
+            // Extract and display the ID
+            const orgID = extractID(referrer);
             document.getElementById('orgID').textContent = orgID;
         });
     </script>
 </head>
 <body>
+    <p>Full Referrer URL: <span id="fullReferrer">Loading...</span></p>
     <p>Your ZOHO organisation ID is: <span id="orgID">Loading...</span></p>
 </body>
 </html>
