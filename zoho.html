@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zoho Organization ID Display</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to extract ID from URL
+            function extractID(url) {
+                const regex = /\/app\/(\d+)/;
+                const match = url.match(regex);
+                return match && match[1] ? match[1] : 'Unavailable';
+            }
+
+            // Extract ID from referrer
+            const referrer = document.referrer;
+            const orgID = extractID(referrer);
+
+            // Display the ID
+            document.getElementById('orgID').textContent = orgID;
+        });
+    </script>
+</head>
+<body>
+    <p>Your ZOHO organisation ID is: <span id="orgID">Loading...</span></p>
+</body>
+</html>
